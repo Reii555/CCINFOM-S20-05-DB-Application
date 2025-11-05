@@ -1,1 +1,0 @@
-// placeholder lang diz for us to put in da sql scripts !!!

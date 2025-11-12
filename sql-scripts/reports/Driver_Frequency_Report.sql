@@ -1,0 +1,14 @@
+-- driver frequency report
+SELECT 		d.DRIVER_ID, 
+			d.DRIVER_FIRSTNAME,
+			d.DRIVER_LASTNAME,
+			d.SHIFT,
+			COUNT(del.DELIVERY_ID) AS Total_Deliveries,
+			RANK() OVER (PARTITION BY d.SHIFT ORDER BY COUNT(del.DELIVERY_ID) DESC) AS Driver_Rank
+FROM 		Drivers d
+LEFT JOIN 	Delivery del ON d.DRIVER_ID = del.DRIVER_ID
+			AND YEAR(del.DELIVERY_DATE) = ?
+			AND MONTH(del.DELIVERY_DATE) = ?
+			AND del.STATUS = 'Delivered'
+GROUP BY 	d.DRIVER_ID, d.DRIVER_FIRSTNAME, d.DRIVER_LASTNAME, d.SHIFT
+ORDER BY 	d.SHIFT, Total_Deliveries DESC;

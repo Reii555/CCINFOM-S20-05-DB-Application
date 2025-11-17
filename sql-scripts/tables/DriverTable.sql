@@ -8,3 +8,10 @@ CREATE TABLE Drivers (
     STATUS CHAR(10) DEFAULT 'Available',
     SHIFT TIME
 );
+
+INSERT INTO Drivers VALUES 
+(1001, 'Bee', 'Jolli', 09171234567, 'DL123456789SU', 'Available', '08:00:00'),
+(1002, 'Barbeque', 'Reyes', 09179876543, 'DL987654321SU', 'Available', '12:00:00'),
+(1003, 'Inasal', 'Mang', 09171122334, 'DL555666777SU', 'Busy', '08:00:00'),
+(1004, 'Fung', 'Din Tai', 09173334455, 'DL444333222SU', 'Available', '16:00:00'),
+(1005, 'Robertson', 'Robert', 09176667788, 'DL888999000SU', 'Available', '12:00:00');

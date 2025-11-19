@@ -10,10 +10,4 @@ PICKUP_SERVICE VARCHAR (20),
 PAYMENT_METHOD CHAR (15),
 FOREIGN KEY (CUSTOMER_ID) REFERENCES Customers(CUSTOMER_ID)
 );
-
-insert into Pickups(ORDER_ID, ORDER_TYPE, STATUS, PICKUP_LOCATION, PICKUP_DATE, PICKUP_SERVICE, PAYMENT_METHOD) values
-(1000000001, 'Meal A', 'Pending', 'Sta. Ana branch', '2024-01-20', 'Express', 'Cash'),
-(1000000002, 'Combo meal C', 'Ready', 'Malate branch', '2024-01-21', 'Standard', 'Credit'),
-(1000000003, 'Combo meal D', 'Completed', 'Pasay branch', '2024-01-19', 'Express', 'Cash'),
-(1000000004, 'Meal B', 'Pending', 'Antipolo branch', '2024-01-22', 'Standard', 'Debit'),
-(1000000005, 'Meal A', 'Ready', 'Gen. Trias branch', '2024-01-21', 'Express', 'Credit');
+-- moved and collected samples to sample_data.sql !

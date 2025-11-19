@@ -11,3 +11,5 @@ INSERT INTO Drivers VALUES
 (1003, 'Inasal', 'Mang', 09171122334, 'DL555666777SU', 'Busy', '08:00:00'),
 (1004, 'Fung', 'Din Tai', 09173334455, 'DL444333222SU', 'Available', '16:00:00'),
 (1005, 'Robertson', 'Robert', 09176667788, 'DL888999000SU', 'Available', '12:00:00');
+
+INSERT INTO 

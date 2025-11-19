@@ -1,3 +1,10 @@
+INSERT INTO customers(customer_id, customer_lastname, customer_firstname, customer_address) VALUES
+(1000000001, 'Dela Cruz', 'Juan', '123 Rizal Street, Sta. Ana, Manila'),
+(1000000002, 'Santos', 'Maria', '456 Mabini Avenue, Malate, Manila'),
+(1000000003, 'Reyes', 'Pedro', '789 Roxas Boulevard, Pasay City'),
+(1000000004, 'Garcia', 'Ana', '321 Sumulong Highway, Antipolo, Rizal'),
+(1000000005, 'Bautista', 'Jose', '654 Governor\'s Drive, Gen. Trias, Cavite');
+
 INSERT INTO Pickups(ORDER_ID, ORDER_TYPE, STATUS, PICKUP_LOCATION, PICKUP_DATE, PICKUP_SERVICE, PAYMENT_METHOD) values
 (1000000001, 'Meal A', 'Pending', 'Sta. Ana branch', '2024-01-20', 'Express', 'Cash'),
 (1000000002, 'Combo meal C', 'Ready', 'Malate branch', '2024-01-21', 'Standard', 'Credit'),

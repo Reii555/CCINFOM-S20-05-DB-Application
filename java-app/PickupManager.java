@@ -7,13 +7,13 @@ public class PickupManager {
         System.out.println("Updating order " + orderId + " to status: " + newStatus);
         return true;*/
 
-        String sql = "UPDATE Pickups SET STATUS = ? HERE ORDER_ID = ?";
+        String sql = "UPDATE Pickups SET STATUS = ? WHERE ORDER_ID = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
         PreparedStatement pStatement = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, newStatus);  //puts "status" into the first "?" in the sql string
-            pstmt.setInt(2, orderId);       //puts orderId into the second "?" in the sql string
+            pStatement.setString(1, newStatus);  //puts "status" into the first "?" in the sql string
+            pStatement.setInt(2, orderId);       //puts orderId into the second "?" in the sql string
 
             int affectedRows = pStatement.executeUpdate();
 
@@ -32,8 +32,8 @@ public class PickupManager {
         try (Connection conn = DatabaseConnection.getConnection();
         PreparedStatement pStatement = conn.prepareStatement(sql)) {
 
-            pstmt.setString(1, paymentMethod);
-            pstmt.setInt(2, orderId);
+            pStatement.setString(1, paymentMethod);
+            pStatement.setInt(2, orderId);
 
             int affectedRows = pStatement.executeUpdate();
 

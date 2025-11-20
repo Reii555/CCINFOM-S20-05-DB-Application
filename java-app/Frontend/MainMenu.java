@@ -120,6 +120,7 @@ private JPanel createTransactions(Color color, Color button, Dimension dim){
     buttonHolder.add(dcppButton, GBC);
 
     JButton ppcvButton = createMenuB("Pickup Preparation & Customer Verification", Color.white, dim);
+    ppcvButton.addActionListener(e -> new PickupPrepPanel());
     GBC.gridy = 2;
     buttonHolder.add(ppcvButton, GBC);
 

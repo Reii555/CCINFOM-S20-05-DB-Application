@@ -12,7 +12,7 @@ INSERT INTO Pickups(ORDER_ID, ORDER_TYPE, STATUS, PICKUP_LOCATION, PICKUP_DATE, 
 (1000000004, 'Meal B', 'Pending', 'Antipolo branch', '2024-01-22', 'Standard', 'Debit'),
 (1000000005, 'Meal A', 'Ready', 'Gen. Trias branch', '2024-01-21', 'Express', 'Credit');
 
-INSERT INTO Drivers VALUES 
+INSERT INTO Drivers (DRIVER_ID, DRIVER_LASTNAME, DRIVER_FIRSTNAME, DRIVER_CONTACT, DRIVER_LICENCE, STATUS, SHIFT) VALUES 
 (1001, 'Bee', 'Jolli', 09171234567, 'DL123456789SU', 'Available', '08:00:00'),
 (1002, 'Barbeque', 'Reyes', 09179876543, 'DL987654321SU', 'Available', '12:00:00'),
 (1003, 'Inasal', 'Mang', 09171122334, 'DL555666777SU', 'Busy', '08:00:00'),

@@ -1,49 +1,74 @@
-import java.sql.*;
+import java.sql.Date;
 
-public class PickupManager {
-    public static boolean updatePickupStatus(int orderId, String newStatus){
-        
-        /*// test print for noooww...
-        System.out.println("Updating order " + orderId + " to status: " + newStatus);
-        return true;*/
+public class Pickup {
+    private int orderId;
+    private String orderType;
+    private String status;
+    private String pickupLocation;
+    private Date pickupDate;
+    private String pickupService;
+    private String paymentMethod;
+    private int customerId;
 
-        String sql = "UPDATE Pickups SET STATUS = ? WHERE ORDER_ID = ?";
-
-        try (Connection conn = DatabaseConnection.getConnection();
-        PreparedStatement pStatement = conn.prepareStatement(sql)) {
-
-            pStatement.setString(1, newStatus);  //puts "status" into the first "?" in the sql string
-            pStatement.setInt(2, orderId);       //puts orderId into the second "?" in the sql string
-
-            int affectedRows = pStatement.executeUpdate();
-
-            return affectedRows > 0;        //if one or more rows were affected, return true
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            //System.out.println(e.getMessage());
-            return false;
-        }
+    // constructor !!
+    public Pickup(int orderId, String orderType, String status, String pickupLocation,
+                  Date pickupDate, String pickupService, String paymentMethod, int customerId) {
+        this.orderId = orderId;
+        this.orderType = orderType;
+        this.status = status;
+        this.pickupLocation = pickupLocation;
+        this.pickupDate = pickupDate;
+        this.pickupService = pickupService;
+        this.paymentMethod = paymentMethod;
+        this.customerId = customerId;
     }
 
-    public static boolean completePickupWPayment(int orderId, String paymentMethod){
-        String sql = "UPDATE Pickups SET STATUS = 'Completed', PAYMENT_METHOD = ? WHERE ORDER_ID = ?";
+    // getters !!
+    public int getOrderId() {
+        return orderId;
+    }
 
-        try (Connection conn = DatabaseConnection.getConnection();
-        PreparedStatement pStatement = conn.prepareStatement(sql)) {
+    public String getOrderType() {
+        return orderType;
+    }
 
-            pStatement.setString(1, paymentMethod);
-            pStatement.setInt(2, orderId);
+    public String getStatus() {
+        return status;
+    }
 
-            int affectedRows = pStatement.executeUpdate();
+    public String getPickupLocation() {
+        return pickupLocation;
+    }
 
-            return affectedRows > 0;
+    public Date getPickupDate() {
+        return pickupDate;
+    }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            //System.out.println(e.getMessage());
-            return false;
-        }
-    }    
+    public String getPickupService() {
+        return pickupService;
+    }
 
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    // setters if needed !!
+    /*
+     public void setStatus(String status) { 
+        this.status = status 
+    }
+    */
+
+    /*
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+    */
+
+
+    
 }

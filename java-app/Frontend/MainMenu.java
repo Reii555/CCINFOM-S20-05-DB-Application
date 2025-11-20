@@ -112,10 +112,12 @@ private JPanel createTransactions(Color color, Color button, Dimension dim){
     GBC.fill = GridBagConstraints.HORIZONTAL;
 
     JButton ddaButton = createMenuB("Driver and Delivery Assignment", Color.white, dim);
+    ddaButton.addActionListener(e -> new DriverDeliveryAssignmentPanel());
     GBC.gridy = 0;
     buttonHolder.add(ddaButton, GBC);
 
     JButton dcppButton = createMenuB("Delivery Completion & Payment Processing", Color.white, dim);
+    dcppButton.addActionListener(e -> new DeliveryCompletionPanel());
     GBC.gridy = 1;
     buttonHolder.add(dcppButton, GBC);
 
@@ -125,6 +127,7 @@ private JPanel createTransactions(Color color, Color button, Dimension dim){
     buttonHolder.add(ppcvButton, GBC);
 
     JButton pcppButton = createMenuB("Pickup Completion & Payment Processing", Color.white, dim);
+    pcppButton.addActionListener(e -> new PickupManagementPanel());
     GBC.gridy = 3;
     buttonHolder.add(pcppButton, GBC);
 

@@ -1,3 +1,5 @@
+-- Sample datas
+
 -- 1. CUSTOMERS
 INSERT INTO customers(customer_id, customer_lastname, customer_firstname, customer_address) VALUES
 (1000000001, 'Dela Cruz', 'Juan', '123 Rizal Street, Sta. Ana, Manila'),
@@ -23,14 +25,9 @@ INSERT INTO Drivers (DRIVER_ID, DRIVER_LASTNAME, DRIVER_FIRSTNAME, DRIVER_CONTAC
 (1005, 'Robertson', 'Robert', '09176667788', 'DL888999000SU', 'Available', '12:00:00');
 
 -- 4. DELIVERIES
-INSERT INTO Deliveries (DELIVERY_ID, ORDER_ID, DELIVERY_TYPE, DELIVERY_STATUS, DRIVER_ID, PAYMENT, EST_DELIVERY_TIME, ACT_DELIVERY_TIME, DELIVERY_FEE, DELIVERY_DATE) VALUES
--- Completed delivery (matches pickup status)
-(2025000001, 1000000003, 'Regular', 'Delivered', 1002, 'Cash', '09:30:00', '09:31:00', 150.00, '2024-01-19'),
-
--- Assigned but not completed  
-(2025000002, 1000000002, 'Regular', 'Assigned', 1004, 'Credit', '14:03:00', NULL, 150.00, '2024-01-21'),
-(2025000003, 1000000005, 'Rush', 'Assigned', 1001, 'Credit', '18:44:00', NULL, 250.00, '2024-01-21'),
-
--- Pending (not assigned yet)
-(2025000004, 1000000001, 'Regular', 'Pending', NULL, 'Cash', '07:23:00', NULL, 150.00, '2024-01-20'),
-(2025000005, 1000000004, 'Rush', 'Pending', NULL, 'Debit', '10:45:00', NULL, 250.00, '2024-01-22');
+INSERT INTO Deliveries (DELIVERY_ID, ORDER_ID, DELIVERY_TYPE, DELIVERY_STATUS, DRIVER_ID, PAYMENT, EST_DELIVERY_TIME, ACT_DELIVERY_TIME, DELIVERY_FEE, DELIVERY_DATE) values
+(2025000001, 1000000001, "Regular", "Pending", 1002, "Cash", '09:30:00', '09:31:00', 150, '2025-11-10'),
+(2025000002, 1000000002, "Regular", "Pending", 1004, "Cash", '14:03:00', '14:02:0', 150, '2025-08-15'),
+(2025000003, 1000000003, "Rush", "Pending", 1004, "Online", '18:44:00', '18:46:00', 250, '2025-10-10'),
+(2025000004, 1000000004, "Regular", "Pending", 1005, "Cash", '07:23:00', '07:23:00', 150, '2025-06-12'),
+(2025000005, 1000000005, "Rush", "Pending", 1001, "Online", '10:45:00', '10:50:00', 250, '2025-05-17');

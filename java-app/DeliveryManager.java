@@ -11,16 +11,16 @@ public class DeliveryManager {
             ResultSet resultSet = pStatement.executeQuery();
             if(resultSet.next()){
                 return new Delivery(
-                    rs.getInt("DELIVERY_ID"),
-                    rs.getInt("ORDER_ID"),
-                    rs.getString("DELIVERY_TYPE"),
-                    rs.getString("DELIVERY_STATUS"),
-                    rs.getInt("DRIVER_ID"),
-                    rs.getString("PAYMENT"),
-                    rs.getTime("EST_DELIVERY_TIME"),
-                    rs.getTime("ACT_DELIVERY_TIME"),
-                    rs.getDouble("DELIVERY_FEE"),
-                    rs.getDate("DELIVERY_DATE")
+                    resultSet.getInt("DELIVERY_ID"),
+                    resultSet.getInt("ORDER_ID"),
+                    resultSet.getString("DELIVERY_TYPE"),
+                    resultSet.getString("DELIVERY_STATUS"),
+                    resultSet.getInt("DRIVER_ID"),
+                    resultSet.getString("PAYMENT"),
+                    resultSet.getTime("EST_DELIVERY_TIME"),
+                    resultSet.getTime("ACT_DELIVERY_TIME"),
+                    resultSet.getDouble("DELIVERY_FEE"),
+                    resultSet.getDate("DELIVERY_DATE")
                 );
             }
         } catch (SQLException e) {
@@ -34,22 +34,22 @@ public static List<Delivery> getAllDeliveriesByStatus(String status){
         String sql = "SELECT * FROM Deliveries WHERE DELIVERY STATUS = ?";
         
         try(Connection conn = DatabaseConnection.getConnection();
-            prepareStatement pStatement = conn.prepareStatement(sql)){
+            PreparedStatement pStatement = conn.prepareStatement(sql)){
             pStatement.setString(1, status);
             ResultSet resultSet = pStatement.executeQuery();
 
             while(resultSet.next()){
                 deliveries.add(new Delivery(
-                    rs.getInt("DELIVERY_ID"),
-                    rs.getInt("ORDER_ID"),
-                    rs.getString("DELIVERY_TYPE"),
-                    rs.getString("DELIVERY_STATUS"),
-                    rs.getInt("DRIVER_ID"),
-                    rs.getString("PAYMENT"),
-                    rs.getTime("EST_DELIVERY_TIME"),
-                    rs.getTime("ACT_DELIVERY_TIME"),
-                    rs.getDouble("DELIVERY_FEE"),
-                    rs.getDate("DELIVERY_DATE")
+                    resultSet.getInt("DELIVERY_ID"),
+                    resultSet.getInt("ORDER_ID"),
+                    resultSet.getString("DELIVERY_TYPE"),
+                    resultSet.getString("DELIVERY_STATUS"),
+                    resultSet.getInt("DRIVER_ID"),
+                    resultSet.getString("PAYMENT"),
+                    resultSet.getTime("EST_DELIVERY_TIME"),
+                    resultSet.getTime("ACT_DELIVERY_TIME"),
+                    resultSet.getDouble("DELIVERY_FEE"),
+                    resultSet.getDate("DELIVERY_DATE")
                 ));
             }
         } catch (SQLException e) {
@@ -109,16 +109,16 @@ public static List<Delivery> getAllDeliveriesByStatus(String status){
             ResultSet resultSet = pStatement.executeQuery();
             while(resultSet.next()){
                 deliveries.add(new Delivery(
-                    rs.getInt("DELIVERY_ID"),
-                    rs.getInt("ORDER_ID"),
-                    rs.getString("DELIVERY_TYPE"),
-                    rs.getString("DELIVERY_STATUS"),
-                    rs.getInt("DRIVER_ID"),
-                    rs.getString("PAYMENT"),
-                    rs.getTime("EST_DELIVERY_TIME"),
-                    rs.getTime("ACT_DELIVERY_TIME"),
-                    rs.getDouble("DELIVERY_FEE"),
-                    rs.getDate("DELIVERY_DATE")
+                    resultSet.getInt("DELIVERY_ID"),
+                    resultSet.getInt("ORDER_ID"),
+                    resultSet.getString("DELIVERY_TYPE"),
+                    resultSet.getString("DELIVERY_STATUS"),
+                    resultSet.getInt("DRIVER_ID"),
+                    resultSet.getString("PAYMENT"),
+                    resultSet.getTime("EST_DELIVERY_TIME"),
+                    resultSet.getTime("ACT_DELIVERY_TIME"),
+                    resultSet.getDouble("DELIVERY_FEE"),
+                    resultSet.getDate("DELIVERY_DATE")
                 ));
             }
         } catch (SQLException e) {

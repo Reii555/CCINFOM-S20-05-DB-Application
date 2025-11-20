@@ -37,4 +37,49 @@ public class ReportManager {
 
         return reportList;
     }
+
+       // CustomerOrdersReport
+    public static List<CustomerOrdersReport> getCustomerOrdersReport(int year, int month) {
+    List<CustomerOrdersReport> reportList = new ArrayList<>();
+
+    String sql = "SELECT c.customer_id, " +
+                 "CONCAT(c.customer_lastname, ', ', c.customer_firstname) AS CustomerName, " +
+                 "COUNT(DISTINCT d.delivery_id) AS Deliveries, " +
+                 "COUNT(DISTINCT p.order_id) AS Pickups, " +
+                 "SUM(CASE WHEN d.payment IS NOT NULL " +
+                 "         THEN CAST(d.payment AS DECIMAL(10,2)) + d.delivery_fee ELSE 0 END) AS TotalTransactionAmount " +
+                 "FROM customers c " +
+                 "LEFT JOIN deliveries d ON c.customer_id = d.customer_id " +
+                 "AND YEAR(d.delivery_date) = ? AND MONTH(d.delivery_date) = ? " +
+                 "LEFT JOIN pickups p ON c.customer_id = p.customer_id " +
+                 "GROUP BY c.customer_id, c.customer_lastname " +
+                 "ORDER BY CustomerName ASC";
+
+    try (Connection conn = DatabaseConnection.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setInt(1, year);
+        stmt.setInt(2, month);
+
+        try (ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                CustomerOrdersReport report = new CustomerOrdersReport(
+                    rs.getInt("customer_id"),
+                    rs.getString("CustomerName"),
+                    rs.getInt("Deliveries"),
+                    rs.getInt("Pickups"),
+                    rs.getDouble("TotalTransactionAmount")
+                );
+                reportList.add(report);
+            }
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return reportList;
 }
+
+}
+

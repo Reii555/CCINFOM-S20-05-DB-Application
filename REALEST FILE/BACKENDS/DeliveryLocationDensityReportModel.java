@@ -5,6 +5,9 @@ public class DeliveryLocationDensityReportModel {
     private int year;
     private int rank;
 
+    public DeliveryLocationDensityReportModel(){} //added diz since blank ung ganitey sa MainMenu.java
+
+    
     public DeliveryLocationDensityReportModel(String location, int totalCompleteDeliveries, String month, int year, int rank) {
         this.location = location;
         this.totalCompleteDeliveries = totalCompleteDeliveries;

@@ -170,7 +170,7 @@ private JPanel createReports(Color color, Color button, Dimension dim){
     // The button is enabled so the team can see the flow, but the actual
     // database query still needs to be implemented in DeliveryManager.
     JButton dldButton = createMenuB("Delivery Location Density Report", Color.white, dim);
-    dldButton.addActionListener(e -> new DeliveryLocationDensityReport());
+    dldButton.addActionListener(e -> new DeliveryLocationDensityReportModel());
     GBC.gridy = 1;
     buttonHolder.add(dldButton, GBC);
 
